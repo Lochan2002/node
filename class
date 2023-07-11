@@ -1,0 +1,92 @@
+class Node{
+    int data;
+    Node next;
+    Node(int data){
+        this.data=data;
+        this.next=null;
+    }
+}
+class linkedlist{
+    Node head;
+    void insert(int data){
+        Node newNode=new Node(data);
+        if(head==null){
+            head=newNode;
+        }
+        else{
+            Node current=head;
+            while(current.next!=null){
+                current=current.next;
+            }
+            current.next=newNode;
+        }
+    }
+    void display(){
+        Node current=head;
+        while(current!=null){
+            System.out.println(current.data+" ");
+            current=current.next;
+        }
+        System.out.println();
+    }
+    void deleteFromStart(){
+        if(head==null){
+            System.out.println("Linked list is empty.");
+            return;
+        }
+        head=head.next;
+    }
+    void deleteFromMiddle(int position){
+        if(head==null){
+            System.out.println("Linked List is empty");
+            return;
+        }
+        Node current=head;
+        Node previous=null;
+        int count=0;
+        while(current!=null){
+            count++;
+            if(count==position){
+                previos.next=current.next;
+                return;
+            }
+            previous=current;
+            current=crrent.next;
+
+        }
+        System.out.println("Invalid position");
+    }
+    void deleteFromEnd(){
+        if(head==null){
+            System.out.println("Linked Lit is empty");
+            return;
+        }
+        if(head.next==null){
+            head=null;
+            return;
+
+        }
+        Node current=head;
+        Node previous=null;
+        while(current.next!=null){
+            previous=current;
+            current=current.next;
+        }
+        previous.next=null;
+    }
+}
+public class Main{
+    public static void main(String[] args){
+        LinkedLit list=new LinkedList();
+        list.insert(1);
+        list.insert(2);
+        list.insert(3);
+        list.insert(4);
+        list.insert(5);
+        System.out.println("Linked List before deletion");
+        list.display();
+        list.deleteFromMiddle(2);
+        System.out.println("Linked List after deleting from middle");
+
+    }
+}
